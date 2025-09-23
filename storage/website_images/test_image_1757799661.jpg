@@ -1,0 +1,101 @@
+<?php
+
+require_once 'vendor/autoload.php';
+
+$app = require_once 'bootstrap/app.php';
+$app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
+
+echo "=== DEBUGGING IMAGE PATH ISSUE ===\n\n";
+
+// Check for any records with incorrect paths
+echo "1. Checking for records with incorrect image paths:\n";
+
+$incorrectPaths = \App\Models\WebsiteContent::where('image', 'like', '%tmp%')
+    ->orWhere('image', 'like', '%C:/%')
+    ->orWhere('image', 'like', '%php%')
+    ->get();
+
+if ($incorrectPaths->count() > 0) {
+    echo "   Found " . $incorrectPaths->count() . " records with incorrect paths:\n";
+    foreach ($incorrectPaths as $record) {
+        echo "   - ID: {$record->id}, Key: {$record->key}, Image: {$record->image}\n";
+    }
+} else {
+    echo "   ✅ No records found with incorrect paths\n";
+}
+
+// Check for any records with very long or unusual paths
+echo "\n2. Checking for records with unusual image paths:\n";
+
+$allRecords = \App\Models\WebsiteContent::whereNotNull('image')->get();
+$unusualPaths = [];
+
+foreach ($allRecords as $record) {
+    $imagePath = $record->image;
+    
+    // Check for paths that are too long or contain unusual characters
+    if (strlen($imagePath) > 100 || 
+        strpos($imagePath, 'tmp') !== false || 
+        strpos($imagePath, 'C:/') !== false ||
+        strpos($imagePath, 'php') !== false) {
+        $unusualPaths[] = $record;
+    }
+}
+
+if (count($unusualPaths) > 0) {
+    echo "   Found " . count($unusualPaths) . " records with unusual paths:\n";
+    foreach ($unusualPaths as $record) {
+        echo "   - ID: {$record->id}, Key: {$record->key}\n";
+        echo "     Image: {$record->image}\n";
+        echo "     URL: {$record->image_url}\n";
+    }
+} else {
+    echo "   ✅ No records found with unusual paths\n";
+}
+
+// Test the FileService to see what it returns
+echo "\n3. Testing FileService behavior:\n";
+
+// Create a mock uploaded file
+$mockFile = new \Illuminate\Http\UploadedFile(
+    __FILE__, // Use this file as a mock
+    'test_image.jpg',
+    'image/jpeg',
+    null,
+    true
+);
+
+try {
+    $result = \App\Services\Helper\FileService::saveFile($mockFile, 'website_images');
+    echo "   FileService::saveFile() returned: $result\n";
+    
+    if (strpos($result, 'tmp') !== false || strpos($result, 'C:/') !== false) {
+        echo "   ❌ FileService is returning incorrect path!\n";
+    } else {
+        echo "   ✅ FileService is returning correct path\n";
+    }
+} catch (Exception $e) {
+    echo "   ❌ Error testing FileService: " . $e->getMessage() . "\n";
+}
+
+// Check the database for any recent updates that might have caused this
+echo "\n4. Checking recent database updates:\n";
+
+$recentRecords = \App\Models\WebsiteContent::whereNotNull('image')
+    ->where('updated_at', '>=', now()->subHours(1))
+    ->orderBy('updated_at', 'desc')
+    ->limit(5)
+    ->get();
+
+if ($recentRecords->count() > 0) {
+    echo "   Recent updates (last hour):\n";
+    foreach ($recentRecords as $record) {
+        echo "   - ID: {$record->id}, Key: {$record->key}\n";
+        echo "     Image: {$record->image}\n";
+        echo "     Updated: {$record->updated_at}\n";
+    }
+} else {
+    echo "   No recent updates found\n";
+}
+
+echo "\n=== DEBUG COMPLETE ===\n";
