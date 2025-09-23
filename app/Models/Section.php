@@ -88,8 +88,8 @@ class Section extends Model
     public function getImageUrlAttribute()
     {
         if ($this->image) {
-            // Use storage-files path for all images (since they're now stored in storage directory)
-            return asset('storage-files/' . $this->image);
+            // Use storage path for all images (since they're now stored in storage directory)
+            return asset('storage/' . $this->image);
         }
         return null;
     }

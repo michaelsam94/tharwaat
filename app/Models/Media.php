@@ -37,8 +37,8 @@ class Media extends Model
     public function getUrlAttribute()
     {
         if ($this->path) {
-            // Use storage-files path for all images (since they're now stored in storage directory)
-            return asset('storage-files/' . $this->path);
+            // Use storage path for all images (since they're now stored in storage directory)
+            return asset('storage/' . $this->path);
         }
         return null;
     }

@@ -111,7 +111,7 @@ Route::get('/tech', function () {
 })->name('tech');
 
 // Route to serve files from storage directory
-Route::get('/storage-files/{path}', function ($path) {
+Route::get('/storage/{path}', function ($path) {
     $filePath = storage_path($path);
     
     if (!file_exists($filePath)) {

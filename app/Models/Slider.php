@@ -101,8 +101,8 @@ class Slider extends Model
                 $baseUrl = config('app.url', 'http://127.0.0.1:8000');
             }
             
-            // Use storage-files path for all images (since they're now stored in storage directory)
-            return $baseUrl . '/storage-files/' . $this->image;
+            // Use storage path for all images (since they're now stored in storage directory)
+            return $baseUrl . '/storage/' . $this->image;
         }
         return null;
     }
@@ -122,8 +122,8 @@ class Slider extends Model
                 $baseUrl = config('app.url', 'http://127.0.0.1:8000');
             }
             
-            // Use storage-files path for all images (since they're now stored in storage directory)
-            return $baseUrl . '/storage-files/' . $this->mobile_image;
+            // Use storage path for all images (since they're now stored in storage directory)
+            return $baseUrl . '/storage/' . $this->mobile_image;
         }
         return $this->image_url;
     }
