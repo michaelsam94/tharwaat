@@ -2,10 +2,10 @@
 echo "<h1>Image Path Test</h1>";
 
 $testImages = [
-    'financial3.jpg',
-    'financial.jpeg', 
-    'financial2.jpg',
-    'tharawatlogo.png'
+    'financial3.jpg' => 'pages_financial_image1.jpg',
+    'financial.jpeg' => 'pages_financial_image2.jpg', 
+    'financial2.jpg' => 'pages_financial_logo.jpeg',
+    'tharawatlogo.png' => 'tharawatlogo.png'
 ];
 
 $possiblePaths = [
@@ -16,14 +16,14 @@ $possiblePaths = [
     '/public/'
 ];
 
-foreach ($testImages as $image) {
-    echo "<h2>Testing: $image</h2>";
+foreach ($testImages as $requestedImage => $actualImage) {
+    echo "<h2>Testing: $requestedImage → $actualImage</h2>";
     $found = false;
     
     foreach ($possiblePaths as $path) {
-        $fullPath = __DIR__ . $path . $image;
+        $fullPath = __DIR__ . $path . $actualImage;
         if (file_exists($fullPath)) {
-            echo "<p style='color: green;'>✓ Found at: $path$image</p>";
+            echo "<p style='color: green;'>✓ Found at: $path$actualImage</p>";
             $found = true;
             break;
         }
@@ -34,7 +34,7 @@ foreach ($testImages as $image) {
     }
     
     // Test URL
-    $url = 'https://thrawaat.com/' . $image;
+    $url = 'https://thrawaat.com/' . $requestedImage;
     echo "<p><a href='$url' target='_blank'>Test URL: $url</a></p>";
     echo "<hr>";
 }

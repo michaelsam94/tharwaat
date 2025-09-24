@@ -19,7 +19,20 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^tharawatlogo\.png$ public/design/front/img/tharawatlogo.png [L]
 
-# Handle all image files dynamically (prioritize website_images)
+# Handle specific financial image mappings
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^financial3\.jpg$ public/storage/website_images/pages_financial_image1.jpg [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^financial\.jpeg$ public/storage/website_images/pages_financial_image2.jpg [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^financial2\.jpg$ public/storage/website_images/pages_financial_logo.jpeg [L]
+
+# Handle all other image files dynamically (prioritize website_images)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} \.(jpg|jpeg|png|gif|svg|webp)$ [NC]

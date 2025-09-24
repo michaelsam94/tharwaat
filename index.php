@@ -42,7 +42,38 @@ foreach ($assetFiles as $asset => $filePath) {
     }
 }
 
-// Handle all image requests dynamically
+// Handle specific image mappings for financial images
+$imageMappings = [
+    '/financial3.jpg' => '/public/storage/website_images/pages_financial_image1.jpg',
+    '/financial.jpeg' => '/public/storage/website_images/pages_financial_image2.jpg',
+    '/financial2.jpg' => '/public/storage/website_images/pages_financial_logo.jpeg'
+];
+
+foreach ($imageMappings as $requestedImage => $actualPath) {
+    if ($uri === $requestedImage) {
+        $fullPath = __DIR__ . $actualPath;
+        if (file_exists($fullPath)) {
+            $extension = strtolower(pathinfo($actualPath, PATHINFO_EXTENSION));
+            $contentTypes = [
+                'jpg' => 'image/jpeg',
+                'jpeg' => 'image/jpeg',
+                'png' => 'image/png',
+                'gif' => 'image/gif',
+                'svg' => 'image/svg+xml',
+                'webp' => 'image/webp'
+            ];
+            
+            if (isset($contentTypes[$extension])) {
+                header('Content-Type: ' . $contentTypes[$extension]);
+            }
+            
+            readfile($fullPath);
+            exit;
+        }
+    }
+}
+
+// Handle all other image requests dynamically
 $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'svg', 'webp'];
 $extension = strtolower(pathinfo($uri, PATHINFO_EXTENSION));
 
