@@ -9,6 +9,12 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} (.+)/$
 RewriteRule ^ %1 [L,R=301]
 
+# Handle static files from public directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^/(css|js|images|fonts|storage|favicon\.ico|robots\.txt)
+RewriteRule ^(.*)$ public/$1 [L]
+
 # Send Requests To Front Controller...
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
