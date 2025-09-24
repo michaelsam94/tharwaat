@@ -38,7 +38,7 @@
                                                     <div class="img-box">
                                                         <div class="img-box__img">
                                                             <img class="img--bg"
-                                                                src="{{ asset('/manage/img/groups_content/' . $content->image) }}"
+                                                                src="{{ asset('/storage/website_images/' . $content->image) }}"
                                                                 alt="img" />
                                                         </div>
                                                     </div>
@@ -79,7 +79,7 @@
                                             <div class="img-box">
                                                 <div class="img-box__img">
                                                     <img class="img--bg"
-                                                        src="{{ asset('/manage/img/groups_content/' . $content->image) }}"
+                                                        src="{{ asset('/storage/website_images/' . $content->image) }}"
                                                         alt="img" />
                                                 </div>
                                             </div>

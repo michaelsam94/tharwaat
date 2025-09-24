@@ -23,7 +23,7 @@
                                         <div class="img-box">
                                             <div class="img-box__img">
                                                 <img class="img--bg"
-                                                    src="{{ asset('/manage/img/groups_content/autoo.png') }}"
+                                                    src="{{ asset('/storage/website_images/pages_auto_logo.png') }}"
                                                     alt="img" />
                                             </div>
                                         </div>
@@ -64,7 +64,7 @@
                             <div class="col-lg-6 col-xl-5 offset-xl-1">
                                 <div class="img-box">
                                     <div class="img-box__img">
-                                        <img class="img--bg" src="{{ asset('/manage/img/groups_content/auto2.jpeg') }}"
+                                        <img class="img--bg" src="{{ asset('/storage/website_images/pages_auto_image1.jpeg') }}"
                                             alt="img" />
                                     </div>
                                 </div>

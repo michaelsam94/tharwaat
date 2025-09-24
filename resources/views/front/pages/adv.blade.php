@@ -24,7 +24,7 @@
                                         <div class="img-box">
                                             <div class="img-box__img">
                                                 <img class="img--bg"
-                                                    src="{{ asset('/manage/img/groups_content/3een.png') }}"
+                                                    src="{{ asset('/storage/website_images/pages_adv_logo.png') }}"
                                                     alt="img" />
                                             </div>
                                         </div>
