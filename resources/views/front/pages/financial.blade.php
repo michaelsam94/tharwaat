@@ -23,7 +23,7 @@
                                         <div class="img-box">
                                             <div class="img-box__img">
                                                 <img class="img--bg"
-                                                    src="{{ asset('/manage/img/groups_content/financial.jpeg') }}"
+                                                    src="{{ asset('/storage/website_images/pages_financial_image2.jpg') }}"
                                                     alt="img" />
                                             </div>
                                         </div>
@@ -62,7 +62,7 @@
                             <div class="col-lg-6 col-xl-5 offset-xl-1">
                                 <div class="img-box">
                                     <div class="img-box__img">
-                                        <img class="img--bg" src="{{ asset('/manage/img/groups_content/financial2.jpg') }}"
+                                        <img class="img--bg" src="{{ asset('/storage/website_images/pages_financial_logo.jpeg') }}"
                                             alt="img" />
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                                         <div class="img-box">
                                             <div class="img-box__img">
                                                 <img class="img--bg"
-                                                    src="{{ asset('/manage/img/groups_content/financial3.jpg') }}"
+                                                    src="{{ asset('/storage/website_images/pages_financial_image1.jpg') }}"
                                                     alt="img" />
                                             </div>
                                         </div>
