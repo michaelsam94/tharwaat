@@ -1,21 +1,17 @@
 <?php
+// Force output to show this is working
+header('Content-Type: text/html; charset=utf-8');
 
-/**
- * Laravel - A PHP Framework For Web Artisans
- *
- * @package  Laravel
- * @author   Taylor Otwell <taylor@laravel.com>
- */
-
-// Check if we're in the correct directory
+// Check if Laravel public directory exists
 if (!file_exists(__DIR__ . '/public/index.php')) {
-    die('Laravel public directory not found. Please check your deployment.');
+    echo '<h1>Laravel Setup Issue</h1>';
+    echo '<p>Laravel public directory not found at: ' . __DIR__ . '/public/index.php</p>';
+    echo '<p>Please check your deployment.</p>';
+    exit;
 }
 
 // Get the request URI
-$uri = urldecode(
-    parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
-);
+$uri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
 // Handle static files in public directory
 if ($uri !== '/' && file_exists(__DIR__.'/public'.$uri)) {
