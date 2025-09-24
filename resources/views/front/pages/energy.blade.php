@@ -24,7 +24,7 @@
                                         <div class="img-box">
                                             <div class="img-box__img">
                                                 <img class="img--bg"
-                                                    src="{{ asset('/manage/img/groups_content/energy.png') }}"
+                                                    src="{{ asset('/storage/website_images/pages_energy_logo.png') }}"
                                                     alt="img" />
                                             </div>
                                         </div>
@@ -67,7 +67,7 @@
                             <div class="col-lg-6 col-xl-5 offset-xl-1">
                                 <div class="img-box">
                                     <div class="img-box__img">
-                                        <img class="img--bg" src="{{ asset('/manage/img/groups_content/energy2.jpg') }}"
+                                        <img class="img--bg" src="{{ asset('/storage/website_images/pages_energy_image1.jpg') }}"
                                             alt="img" />
                                     </div>
                                 </div>
@@ -87,7 +87,7 @@
                                         <div class="img-box">
                                             <div class="img-box__img">
                                                 <img class="img--bg"
-                                                    src="{{ asset('/manage/img/groups_content/energy3.jpeg') }}"
+                                                    src="{{ asset('/storage/website_images/pages_energy_image2.jpeg') }}"
                                                     alt="img" />
                                             </div>
                                         </div>
@@ -131,7 +131,7 @@
                             <div class="col-lg-6 col-xl-5 offset-xl-1">
                                 <div class="img-box">
                                     <div class="img-box__img">
-                                        <img class="img--bg" src="{{ asset('/manage/img/groups_content/energy4.jpg') }}"
+                                        <img class="img--bg" src="{{ asset('/storage/website_images/pages_energy_image3.jpg') }}"
                                             alt="img" />
                                     </div>
                                 </div>
@@ -150,7 +150,7 @@
                                         <div class="img-box">
                                             <div class="img-box__img">
                                                 <img class="img--bg"
-                                                    src="{{ asset('/manage/img/groups_content/energy5.jpeg') }}"
+                                                    src="{{ asset('/storage/website_images/pages_energy_image4.jpeg') }}"
                                                     alt="img" />
                                             </div>
                                         </div>
