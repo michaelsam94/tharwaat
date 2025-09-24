@@ -10,6 +10,45 @@ $uri = urldecode(
     parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
 );
 
+// Handle specific asset files that are commonly requested
+$assetFiles = [
+    '/styles.min.css',
+    '/common.min.js', 
+    '/libs.min.js',
+    '/tharawatlogo.png'
+];
+
+foreach ($assetFiles as $asset) {
+    if ($uri === $asset) {
+        $filePath = __DIR__ . '/public/design/front' . $asset;
+        if (file_exists($filePath)) {
+            // Set appropriate content type
+            $extension = pathinfo($asset, PATHINFO_EXTENSION);
+            $contentTypes = [
+                'css' => 'text/css',
+                'js' => 'application/javascript',
+                'png' => 'image/png'
+            ];
+            
+            if (isset($contentTypes[$extension])) {
+                header('Content-Type: ' . $contentTypes[$extension]);
+            }
+            
+            readfile($filePath);
+            exit;
+        }
+    }
+}
+
+// Handle storage files
+if (strpos($uri, '/storage/') === 0) {
+    $filePath = __DIR__ . '/public' . $uri;
+    if (file_exists($filePath)) {
+        readfile($filePath);
+        exit;
+    }
+}
+
 // Handle static files (CSS, JS, images) from public directory
 if ($uri !== '/' && file_exists(__DIR__.'/public'.$uri)) {
     return false;

@@ -97,3 +97,4 @@
 - Change default admin password
 - Update database credentials if needed
 
+

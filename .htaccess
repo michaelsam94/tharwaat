@@ -9,10 +9,20 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} (.+)/$
 RewriteRule ^ %1 [L,R=301]
 
-# Handle static files from public directory
+# Handle specific asset files that are commonly requested
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} ^/(css|js|images|fonts|storage|favicon\.ico|robots\.txt)
+RewriteRule ^(styles\.min\.css|common\.min\.js|libs\.min\.js|tharawatlogo\.png)$ public/design/front/$1 [L]
+
+# Handle storage files
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^storage/(.*)$ public/storage/$1 [L]
+
+# Handle other static files from public directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^/(css|js|images|fonts|storage|favicon\.ico|robots\.txt|design)
 RewriteRule ^(.*)$ public/$1 [L]
 
 # Send Requests To Front Controller...
