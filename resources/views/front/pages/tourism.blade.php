@@ -23,7 +23,7 @@
                                         <div class="img-box">
                                             <div class="img-box__img">
                                                 <img class="img--bg"
-                                                    src="{{ asset('/manage/img/groups_content/monami.jpg') }}"
+                                                    src="{{ asset('/storage/website_images/pages_tourism_logo.jpg') }}"
                                                     alt="img" />
                                             </div>
                                         </div>
