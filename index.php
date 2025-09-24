@@ -18,4 +18,10 @@ if ($uri !== '/' && file_exists(__DIR__.'/public'.$uri)) {
     return false;
 }
 
+// Set the document root to the public directory
+$_SERVER['DOCUMENT_ROOT'] = __DIR__ . '/public';
+
+// Change to the public directory
+chdir(__DIR__ . '/public');
+
 require_once __DIR__.'/public/index.php';
