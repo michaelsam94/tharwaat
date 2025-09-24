@@ -19,10 +19,23 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^tharawatlogo\.png$ public/design/front/img/tharawatlogo.png [L]
 
-# Handle financial images
+# Handle all image files dynamically
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(financial3\.jpg|financial\.jpeg|financial2\.jpg)$ public/manage/img/groups_content/$1 [L]
+RewriteCond %{REQUEST_URI} \.(jpg|jpeg|png|gif|svg|webp)$ [NC]
+RewriteRule ^(.*)$ public/manage/img/groups_content/$1 [L]
+
+# If not found in groups_content, try other locations
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} \.(jpg|jpeg|png|gif|svg|webp)$ [NC]
+RewriteRule ^(.*)$ public/design/front/img/$1 [L]
+
+# If still not found, try storage
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} \.(jpg|jpeg|png|gif|svg|webp)$ [NC]
+RewriteRule ^(.*)$ public/storage/$1 [L]
 
 # Handle storage files
 RewriteCond %{REQUEST_FILENAME} !-f

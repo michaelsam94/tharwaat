@@ -42,19 +42,36 @@ foreach ($assetFiles as $asset => $filePath) {
     }
 }
 
-// Handle financial images
-$financialImages = [
-    '/financial3.jpg' => '/public/manage/img/groups_content/financial3.jpg',
-    '/financial.jpeg' => '/public/manage/img/groups_content/financial.jpeg',
-    '/financial2.jpg' => '/public/manage/img/groups_content/financial2.jpg'
-];
+// Handle all image requests dynamically
+$imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'svg', 'webp'];
+$extension = strtolower(pathinfo($uri, PATHINFO_EXTENSION));
 
-foreach ($financialImages as $image => $filePath) {
-    if ($uri === $image) {
-        $fullPath = __DIR__ . $filePath;
-        if (file_exists($fullPath)) {
-            header('Content-Type: image/jpeg');
-            readfile($fullPath);
+if (in_array($extension, $imageExtensions)) {
+    // Try multiple possible locations for images
+    $possiblePaths = [
+        __DIR__ . '/public/manage/img/groups_content' . $uri,
+        __DIR__ . '/public/design/front/img' . $uri,
+        __DIR__ . '/public/storage' . $uri,
+        __DIR__ . '/public' . $uri
+    ];
+    
+    foreach ($possiblePaths as $imagePath) {
+        if (file_exists($imagePath)) {
+            // Set appropriate content type
+            $contentTypes = [
+                'jpg' => 'image/jpeg',
+                'jpeg' => 'image/jpeg',
+                'png' => 'image/png',
+                'gif' => 'image/gif',
+                'svg' => 'image/svg+xml',
+                'webp' => 'image/webp'
+            ];
+            
+            if (isset($contentTypes[$extension])) {
+                header('Content-Type: ' . $contentTypes[$extension]);
+            }
+            
+            readfile($imagePath);
             exit;
         }
     }
