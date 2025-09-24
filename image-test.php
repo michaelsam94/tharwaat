@@ -9,9 +9,10 @@ $testImages = [
 ];
 
 $possiblePaths = [
+    '/public/storage/website_images/',
+    '/public/storage/',
     '/public/manage/img/groups_content/',
     '/public/design/front/img/',
-    '/public/storage/',
     '/public/'
 ];
 

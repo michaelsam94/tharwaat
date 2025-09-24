@@ -47,11 +47,12 @@ $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'svg', 'webp'];
 $extension = strtolower(pathinfo($uri, PATHINFO_EXTENSION));
 
 if (in_array($extension, $imageExtensions)) {
-    // Try multiple possible locations for images
+    // Try multiple possible locations for images (prioritize website_images)
     $possiblePaths = [
+        __DIR__ . '/public/storage/website_images' . $uri,
+        __DIR__ . '/public/storage' . $uri,
         __DIR__ . '/public/manage/img/groups_content' . $uri,
         __DIR__ . '/public/design/front/img' . $uri,
-        __DIR__ . '/public/storage' . $uri,
         __DIR__ . '/public' . $uri
     ];
     
