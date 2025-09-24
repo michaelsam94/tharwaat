@@ -120,3 +120,4 @@ INSERT INTO `sliders` (`title_en`, `title_ar`, `title_bg`, `subtitle_en`, `subti
 
 -- Show success message
 SELECT 'Tables created successfully! Your Laravel application should now work.' as message;
+

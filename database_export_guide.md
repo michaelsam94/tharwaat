@@ -96,3 +96,4 @@
 - Delete the SQL export file after successful import
 - Change default admin password
 - Update database credentials if needed
+

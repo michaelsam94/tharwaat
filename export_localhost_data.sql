@@ -124,3 +124,4 @@ INSERT INTO `admins` (`id`, `name`, `email`, `password`, `remember_token`, `crea
 
 -- Show success message
 SELECT 'All data imported successfully! Your website should now have all the content from localhost.' as message;
+
