@@ -12,7 +12,17 @@ RewriteRule ^ %1 [L,R=301]
 # Handle specific asset files that are commonly requested
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(styles\.min\.css|common\.min\.js|libs\.min\.js|tharawatlogo\.png)$ public/design/front/$1 [L]
+RewriteRule ^(styles\.min\.css|common\.min\.js|libs\.min\.js)$ public/design/front/$1 [L]
+
+# Handle tharawatlogo.png (it's in img subdirectory)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^tharawatlogo\.png$ public/design/front/img/tharawatlogo.png [L]
+
+# Handle financial images
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(financial3\.jpg|financial\.jpeg|financial2\.jpg)$ public/manage/img/groups_content/$1 [L]
 
 # Handle storage files
 RewriteCond %{REQUEST_FILENAME} !-f

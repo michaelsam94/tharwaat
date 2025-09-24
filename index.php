@@ -12,29 +12,49 @@ $uri = urldecode(
 
 // Handle specific asset files that are commonly requested
 $assetFiles = [
-    '/styles.min.css',
-    '/common.min.js', 
-    '/libs.min.js',
-    '/tharawatlogo.png'
+    '/styles.min.css' => '/public/design/front/styles.min.css',
+    '/common.min.js' => '/public/design/front/common.min.js',
+    '/libs.min.js' => '/public/design/front/libs.min.js',
+    '/tharawatlogo.png' => '/public/design/front/img/tharawatlogo.png'
 ];
 
-foreach ($assetFiles as $asset) {
+foreach ($assetFiles as $asset => $filePath) {
     if ($uri === $asset) {
-        $filePath = __DIR__ . '/public/design/front' . $asset;
-        if (file_exists($filePath)) {
+        $fullPath = __DIR__ . $filePath;
+        if (file_exists($fullPath)) {
             // Set appropriate content type
             $extension = pathinfo($asset, PATHINFO_EXTENSION);
             $contentTypes = [
                 'css' => 'text/css',
                 'js' => 'application/javascript',
-                'png' => 'image/png'
+                'png' => 'image/png',
+                'jpg' => 'image/jpeg',
+                'jpeg' => 'image/jpeg'
             ];
             
             if (isset($contentTypes[$extension])) {
                 header('Content-Type: ' . $contentTypes[$extension]);
             }
             
-            readfile($filePath);
+            readfile($fullPath);
+            exit;
+        }
+    }
+}
+
+// Handle financial images
+$financialImages = [
+    '/financial3.jpg' => '/public/manage/img/groups_content/financial3.jpg',
+    '/financial.jpeg' => '/public/manage/img/groups_content/financial.jpeg',
+    '/financial2.jpg' => '/public/manage/img/groups_content/financial2.jpg'
+];
+
+foreach ($financialImages as $image => $filePath) {
+    if ($uri === $image) {
+        $fullPath = __DIR__ . $filePath;
+        if (file_exists($fullPath)) {
+            header('Content-Type: image/jpeg');
+            readfile($fullPath);
             exit;
         }
     }
