@@ -13,7 +13,7 @@
                 </picture>
                 <div class="container">
                     <div class="row">
-                        <div class="col-xl-6 text-left">
+                        <div class="col-12 col-md-6 col-xl-6 text-left">
                             <div class="align-container">
                                 <div class="align-container__item">
                                     @if($slider->title)
@@ -55,7 +55,7 @@
                 </picture>
                 <div class="container">
                     <div class="row">
-                        <div class="col-xl-6 text-left">
+                        <div class="col-12 col-md-6 col-xl-6 text-left">
                             <div class="align-container">
                                 <div class="align-container__item">
                                     <div class="promo-slider__wrapper-1">

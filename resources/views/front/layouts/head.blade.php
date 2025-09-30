@@ -331,12 +331,124 @@
                 object-fit: cover;
             }
             
+            /* Fix slider layout for mobile */
+            .promo-slider__item .col-xl-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+            .promo-slider__item .container {
+                padding: 20px 15px;
+            }
+            
+            .promo-slider__item .row {
+                margin: 0;
+            }
+            
+            /* Fix about section layout for mobile */
+            .about-us--blue .col-lg-6,
+            .about-us--blue .col-xl-5,
+            .about-us--blue .col-xl-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+                margin-bottom: 30px;
+            }
+            
+            .about-us--blue .offset-xl-1 {
+                margin-left: 0;
+            }
+            
+            /* Fix heading spacing on mobile */
+            .heading {
+                margin-bottom: 20px;
+            }
+            
+            .heading__title {
+                font-size: 24px !important;
+                line-height: 1.3;
+                margin-bottom: 15px;
+            }
+            
+            .heading__pre-title {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+            
+            /* Fix button sizing on mobile */
+            .button {
+                width: 100%;
+                text-align: center;
+                margin: 15px 0;
+                padding: 15px 20px;
+                font-size: 16px;
+            }
+            
+            /* Fix text spacing on mobile */
+            p {
+                margin-bottom: 15px;
+                line-height: 1.6;
+            }
+            
             /* Optimize content images */
             .content img,
             .about img,
             .partners img {
                 max-width: 100%;
                 height: auto;
+            }
+            
+            /* Fix container padding on mobile */
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            /* Fix section padding on mobile */
+            .section {
+                padding: 40px 0;
+            }
+            
+            /* Fix join us section for mobile */
+            .action-block {
+                min-height: 250px;
+                margin-bottom: 20px;
+            }
+            
+            .action-block__title {
+                font-size: 20px !important;
+                margin-bottom: 15px;
+            }
+            
+            .action-block__link {
+                width: 100%;
+                text-align: center;
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+            
+            /* Fix partners carousel for mobile */
+            .carousel-item {
+                padding: 10px;
+            }
+            
+            .carousel-item img {
+                max-height: 80px;
+                width: auto;
+                margin: 0 auto;
+            }
+            
+            /* Fix footer for mobile */
+            .footer {
+                padding: 30px 0;
+            }
+            
+            .footer .row {
+                margin: 0;
+            }
+            
+            .footer .col-lg-3,
+            .footer .col-md-6 {
+                margin-bottom: 30px;
             }
             
             /* Fix any overflow issues */

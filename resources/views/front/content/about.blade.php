@@ -8,7 +8,7 @@
 <section class="section about-us--blue">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-xl-5">
+            <div class="col-12 col-lg-6 col-xl-5">
                 <div class="img-box">
                     <div class="img-box__img">
                         @if($aboutImage && $aboutImage->image)
@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-xl-6 offset-xl-1">
+            <div class="col-12 col-lg-6 col-xl-6 offset-xl-1">
                 <div class="heading heading--primary">
                     <span class="heading__pre-title color--mono">
                         {{ WebsiteContentService::getContentWithFallback('home.about.header', __('about.header')) }}

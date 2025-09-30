@@ -7,7 +7,7 @@
 
 <section class="section no-padding-top no-padding-bottom">
     <div class="row no-gutters">
-        <div class="col-xl-6">
+        <div class="col-12 col-xl-6">
             <div class="action-block">
                 <div class="action-block__inner">
                     @if($joinImage1 && $joinImage1->image)
@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-6">
+        <div class="col-12 col-xl-6">
             <div class="action-block">
                 <div class="action-block__inner">
                     @if($joinImage2 && $joinImage2->image)
