@@ -1011,6 +1011,133 @@
            RESPONSIVE COMPONENTS
            ======================================== */
         
+        /* ========================================
+           PROMO SLIDER MOBILE OPTIMIZATION
+           ======================================== */
+        
+        /* Mobile promo slider fixes */
+        @media (max-width: 950px) {
+            .promo-slider__item {
+                padding: 20px 15px !important;
+                text-align: center !important;
+            }
+            
+            .align-container {
+                display: block !important;
+                height: auto !important;
+                min-height: auto !important;
+            }
+            
+            .align-container__item {
+                display: block !important;
+                position: static !important;
+                transform: none !important;
+                top: auto !important;
+                left: auto !important;
+                width: 100% !important;
+                padding: 0 !important;
+            }
+            
+            /* Promo slider title mobile styling */
+            .promo-slider__title {
+                font-size: 24px !important;
+                line-height: 1.3 !important;
+                margin-bottom: 15px !important;
+                text-align: center !important;
+                font-weight: 700 !important;
+            }
+            
+            .promo-slider__title span {
+                display: block !important;
+                margin-bottom: 5px !important;
+            }
+            
+            /* Promo slider subtitle mobile styling */
+            .promo-slider__subtitle {
+                font-size: 16px !important;
+                line-height: 1.5 !important;
+                margin-bottom: 20px !important;
+                text-align: center !important;
+                color: #666 !important;
+                max-width: 100% !important;
+            }
+            
+            /* Promo slider button mobile styling */
+            .promo-slider__button {
+                width: 100% !important;
+                max-width: 280px !important;
+                margin: 0 auto !important;
+                padding: 15px 25px !important;
+                font-size: 16px !important;
+                font-weight: 600 !important;
+                border-radius: 8px !important;
+                display: block !important;
+                text-align: center !important;
+            }
+            
+            /* Promo slider wrapper spacing */
+            .promo-slider__wrapper-1,
+            .promo-slider__wrapper-2,
+            .promo-slider__wrapper-3 {
+                margin-bottom: 15px !important;
+                width: 100% !important;
+            }
+            
+            .promo-slider__wrapper-3 {
+                margin-bottom: 0 !important;
+            }
+        }
+        
+        /* Extra small devices promo slider */
+        @media (max-width: 575.98px) {
+            .promo-slider__title {
+                font-size: 20px !important;
+                line-height: 1.2 !important;
+            }
+            
+            .promo-slider__subtitle {
+                font-size: 14px !important;
+                line-height: 1.4 !important;
+            }
+            
+            .promo-slider__button {
+                padding: 12px 20px !important;
+                font-size: 14px !important;
+            }
+        }
+        
+        /* Small devices promo slider */
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .promo-slider__title {
+                font-size: 22px !important;
+            }
+            
+            .promo-slider__subtitle {
+                font-size: 15px !important;
+            }
+            
+            .promo-slider__button {
+                padding: 14px 22px !important;
+                font-size: 15px !important;
+            }
+        }
+        
+        /* Medium devices promo slider */
+        @media (min-width: 768px) and (max-width: 950px) {
+            .promo-slider__title {
+                font-size: 26px !important;
+            }
+            
+            .promo-slider__subtitle {
+                font-size: 17px !important;
+            }
+            
+            .promo-slider__button {
+                padding: 16px 28px !important;
+                font-size: 16px !important;
+            }
+        }
+        
         /* Responsive carousel */
         @media (max-width: 575.98px) {
             .carousel-item {
