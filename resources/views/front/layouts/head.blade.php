@@ -11,131 +11,262 @@
     <!-- web-font loader-->
     <style type="text/css">
 
-        @media (min-width: 768px) and (max-width: 991px) {
-            /* Show 4th slide on md if col-md-4*/
-            .carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item {
-                position: absolute;
-                top: 0;
-                right: -33.3333%;  /*change this with javascript in the future*/
-                z-index: -1;
-                display: block;
-                visibility: visible;
+        /* ========================================
+           COMPREHENSIVE RESPONSIVE DESIGN SYSTEM
+           ======================================== */
+        
+        /* Mobile First Approach - Base styles for mobile */
+        * {
+            box-sizing: border-box;
+        }
+        
+        body, html {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .container, .container-fluid {
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        
+        /* ========================================
+           RESPONSIVE BREAKPOINTS
+           ======================================== */
+        
+        /* Extra Small devices (phones, 576px and down) */
+        @media (max-width: 575.98px) {
+            .container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            
+            .section {
+                padding: 20px 0;
+            }
+            
+            .heading__title {
+                font-size: 20px !important;
+                line-height: 1.3;
+            }
+            
+            .heading__pre-title {
+                font-size: 12px;
+            }
+            
+            .button {
+                width: 100%;
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+            
+            .promo-slider__title {
+                font-size: 18px !important;
+            }
+            
+            .promo-slider__subtitle {
+                font-size: 14px !important;
             }
         }
-        @media (min-width: 576px) and (max-width: 768px) {
-            /* Show 3rd slide on sm if col-sm-6*/
-            .carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item {
-                position: absolute;
-                top: 0;
-                right: -50%;  /*change this with javascript in the future*/
-                z-index: -1;
-                display: block;
-                visibility: visible;
+        
+        /* Small devices (landscape phones, 576px and up) */
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            .section {
+                padding: 30px 0;
+            }
+            
+            .heading__title {
+                font-size: 22px !important;
+            }
+            
+            .button {
+                padding: 14px 20px;
+                font-size: 15px;
             }
         }
-        @media (min-width: 576px) {
-            .carousel-item {
-                margin-right: 0;
+        
+        /* Medium devices (tablets, 768px and up) */
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
             }
-            /* show 2 items */
-            .carousel-inner .active + .carousel-item {
-                display: block;
+            
+            .section {
+                padding: 40px 0;
             }
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item {
-                transition: none;
+            
+            .heading__title {
+                font-size: 24px !important;
             }
-            .carousel-inner .carousel-item-next {
-                position: relative;
-                transform: translate3d(0, 0, 0);
+            
+            .button {
+                padding: 15px 25px;
+                font-size: 16px;
             }
-            /* left or forward direction */
-            .active.carousel-item-left + .carousel-item-next.carousel-item-left,
-            .carousel-item-next.carousel-item-left + .carousel-item,
-            .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(-100%, 0, 0);
-                visibility: visible;
-            }
-            /* farthest right hidden item must be also positioned for animations */
-            .carousel-inner .carousel-item-prev.carousel-item-right {
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -1;
-                display: block;
-                visibility: visible;
-            }
-            /* right or prev direction */
-            .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
-            .carousel-item-prev.carousel-item-right + .carousel-item,
-            .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(100%, 0, 0);
-                visibility: visible;
-                display: block;
-                visibility: visible;
+            
+            /* Tablet-specific layout adjustments */
+            .col-md-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
             }
         }
-        /* MD */
-        @media (min-width: 768px) {
-            /* show 3rd of 3 item slide */
-            .carousel-inner .active + .carousel-item + .carousel-item {
-                display: block;
+        
+        /* Large devices (desktops, 992px and up) */
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .container {
+                padding-left: 25px;
+                padding-right: 25px;
             }
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
-                transition: none;
+            
+            .section {
+                padding: 50px 0;
             }
-            .carousel-inner .carousel-item-next {
-                position: relative;
-                transform: translate3d(0, 0, 0);
+            
+            .heading__title {
+                font-size: 28px !important;
             }
-            /* left or forward direction */
-            .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(-100%, 0, 0);
-                visibility: visible;
-            }
-            /* right or prev direction */
-            .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(100%, 0, 0);
-                visibility: visible;
-                display: block;
-                visibility: visible;
+            
+            .button {
+                padding: 16px 30px;
+                font-size: 16px;
             }
         }
-        /* LG */
-        @media (min-width: 991px) {
-            /* show 4th item */
-            .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
-                display: block;
+        
+        /* Extra large devices (large desktops, 1200px and up) */
+        @media (min-width: 1200px) {
+            .container {
+                padding-left: 30px;
+                padding-right: 30px;
             }
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
-                transition: none;
+            
+            .section {
+                padding: 60px 0;
             }
-            /* Show 5th slide on lg if col-lg-3 */
-            .carousel-inner .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-                position: absolute;
-                top: 0;
-                right: -25%;  /*change this with javascript in the future*/
-                z-index: -1;
-                display: block;
-                visibility: visible;
+            
+            .heading__title {
+                font-size: 32px !important;
             }
-            /* left or forward direction */
-            .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(-100%, 0, 0);
-                visibility: visible;
+            
+            .button {
+                padding: 18px 35px;
+                font-size: 17px;
             }
-            /* right or prev direction //t - previous slide direction last item animation fix */
-            .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(100%, 0, 0);
-                visibility: visible;
-                display: block;
-                visibility: visible;
+        }
+        
+        /* ========================================
+           RESPONSIVE IMAGES AND MEDIA
+           ======================================== */
+        
+        /* Base image styles */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .img--bg {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        /* Responsive images for different breakpoints */
+        @media (max-width: 575.98px) {
+            .promo-slider__item img {
+                height: 250px;
+                object-fit: cover;
+            }
+            
+            .about-us--blue .img-box__img {
+                height: 200px;
+            }
+            
+            .action-block {
+                min-height: 200px;
+            }
+        }
+        
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .promo-slider__item img {
+                height: 300px;
+                object-fit: cover;
+            }
+            
+            .about-us--blue .img-box__img {
+                height: 250px;
+            }
+            
+            .action-block {
+                min-height: 250px;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .promo-slider__item img {
+                height: 400px;
+                object-fit: cover;
+            }
+            
+            .about-us--blue .img-box__img {
+                height: 300px;
+            }
+            
+            .action-block {
+                min-height: 300px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .promo-slider__item img {
+                height: 500px;
+                object-fit: cover;
+            }
+            
+            .about-us--blue .img-box__img {
+                height: 400px;
+            }
+            
+            .action-block {
+                min-height: 350px;
+            }
+        }
+        
+        /* ========================================
+           RESPONSIVE NAVIGATION
+           ======================================== */
+        
+        /* Mobile navigation (950px and below) */
+        @media (max-width: 950px) {
+            .main-menu {
+                display: none !important;
+            }
+            
+            .dropdown-trigger {
+                display: block !important;
+            }
+        }
+        
+        /* Desktop navigation (951px and above) */
+        @media (min-width: 951px) {
+            .main-menu {
+                display: inline-flex !important;
+            }
+            
+            .dropdown-trigger {
+                display: none !important;
+            }
+            
+            .mobile-nav {
+                display: none !important;
             }
         }
 
@@ -664,6 +795,140 @@
             }
         }
         
+        /* ========================================
+           RESPONSIVE GRID SYSTEM
+           ======================================== */
+        
+        /* Mobile-first grid approach */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+        
+        [class*="col-"] {
+            position: relative;
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        
+        /* Extra small devices (phones, 576px and down) */
+        @media (max-width: 575.98px) {
+            [class*="col-"] {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+        
+        /* Small devices (landscape phones, 576px and up) */
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .col-sm-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+        
+        /* Medium devices (tablets, 768px and up) */
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .col-md-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+            
+            .col-md-4 {
+                flex: 0 0 33.333333%;
+                max-width: 33.333333%;
+            }
+        }
+        
+        /* Large devices (desktops, 992px and up) */
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .col-lg-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+            
+            .col-lg-4 {
+                flex: 0 0 33.333333%;
+                max-width: 33.333333%;
+            }
+            
+            .col-lg-3 {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+        }
+        
+        /* Extra large devices (large desktops, 1200px and up) */
+        @media (min-width: 1200px) {
+            .col-xl-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+            
+            .col-xl-5 {
+                flex: 0 0 41.666667%;
+                max-width: 41.666667%;
+            }
+            
+            .col-xl-4 {
+                flex: 0 0 33.333333%;
+                max-width: 33.333333%;
+            }
+            
+            .col-xl-3 {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+        }
+        
+        /* ========================================
+           RESPONSIVE COMPONENTS
+           ======================================== */
+        
+        /* Responsive carousel */
+        @media (max-width: 575.98px) {
+            .carousel-item {
+                padding: 5px;
+            }
+            
+            .carousel-item img {
+                max-height: 60px;
+            }
+        }
+        
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .carousel-item {
+                padding: 8px;
+            }
+            
+            .carousel-item img {
+                max-height: 70px;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .carousel-item {
+                padding: 10px;
+            }
+            
+            .carousel-item img {
+                max-height: 80px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .carousel-item {
+                padding: 15px;
+            }
+            
+            .carousel-item img {
+                max-height: 100px;
+            }
+        }
+        
         /* Additional mobile fixes for 950px breakpoint */
         @media (max-width: 950px) and (min-width: 768px) {
             /* Tablet-specific fixes */
@@ -712,3 +977,4 @@
         font()
     </script>
 </head>
+
