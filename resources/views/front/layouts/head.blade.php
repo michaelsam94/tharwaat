@@ -164,6 +164,27 @@
                 background-color: #fff !important;
             }
             
+            /* Debug: Add temporary background colors to identify sections */
+            .section {
+                border: 1px solid #ddd;
+                margin: 10px 0;
+            }
+            
+            /* Ensure content is visible */
+            .section .container {
+                background: transparent;
+            }
+            
+            .section .row {
+                background: transparent;
+            }
+            
+            /* Fix any hidden content */
+            .section * {
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
             .page-wrapper {
                 width: 100% !important;
                 margin: 0 !important;
@@ -214,30 +235,43 @@
                 list-style: none;
                 padding: 0;
                 margin: 0;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             }
             
             .mobile-menu__item {
-                margin-bottom: 15px;
+                margin-bottom: 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            
+            .mobile-menu__item:last-child {
+                border-bottom: none;
             }
             
             .mobile-menu__link {
                 display: block;
-                padding: 10px 0;
+                padding: 15px 20px;
                 color: #333;
                 text-decoration: none;
                 font-weight: 500;
-                border-bottom: 1px solid #eee;
-                transition: color 0.3s ease;
+                font-size: 16px;
+                transition: all 0.3s ease;
+                background: #fff;
             }
             
             .mobile-menu__link:hover {
-                color: #007bff;
+                color: #002344;
+                background: #f8f9fa;
+                padding-left: 25px;
             }
             
             .mobile-menu__sub-list {
                 list-style: none;
                 padding: 0;
-                margin: 10px 0 0 20px;
+                margin: 0;
+                background: #f8f9fa;
+                border-radius: 0 0 8px 8px;
                 display: none;
             }
             
@@ -245,6 +279,8 @@
                 content: '+';
                 float: right;
                 font-size: 18px;
+                font-weight: bold;
+                color: #002344;
             }
             
             .mobile-menu__item--has-child.active .mobile-menu__link:after {
@@ -256,17 +292,27 @@
             }
             
             .mobile-menu__sub-list li {
-                margin-bottom: 8px;
+                margin-bottom: 0;
+                border-bottom: 1px solid #e9ecef;
+            }
+            
+            .mobile-menu__sub-list li:last-child {
+                border-bottom: none;
             }
             
             .mobile-menu__sub-list a {
                 color: #666;
                 text-decoration: none;
                 font-size: 14px;
+                padding: 12px 20px;
+                display: block;
+                transition: all 0.3s ease;
             }
             
             .mobile-menu__sub-list a:hover {
-                color: #007bff;
+                color: #002344;
+                background: #fff;
+                padding-left: 25px;
             }
             
             /* Close button for mobile nav */
@@ -463,6 +509,30 @@
                 width: 100% !important;
                 margin: 0 !important;
                 padding: 30px 15px !important;
+                background-color: #002344 !important;
+                min-height: auto !important;
+            }
+            
+            .about-us--blue .heading__title,
+            .about-us--blue .heading__pre-title,
+            .about-us--blue p {
+                color: #fff !important;
+            }
+            
+            .about-us--blue .img-box {
+                margin-bottom: 20px;
+            }
+            
+            .about-us--blue .img-box__img {
+                height: 250px;
+                overflow: hidden;
+                border-radius: 8px;
+            }
+            
+            .about-us--blue .img-box__img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
             
             /* Fix join us section for mobile */
