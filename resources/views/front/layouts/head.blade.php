@@ -311,6 +311,34 @@
                 object-fit: cover;
             }
             
+            /* Optimize all images for mobile */
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            /* Ensure logo images are properly sized */
+            .header-logo__img,
+            .footer-logo__img {
+                max-width: 200px;
+                height: auto;
+            }
+            
+            /* Optimize slider images for mobile */
+            .promo-slider__item img {
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+            }
+            
+            /* Optimize content images */
+            .content img,
+            .about img,
+            .partners img {
+                max-width: 100%;
+                height: auto;
+            }
+            
             /* Fix any overflow issues */
             .row {
                 margin-left: -15px;
