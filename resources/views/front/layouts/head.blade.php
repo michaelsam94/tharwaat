@@ -4,7 +4,7 @@
     <meta name="keywords" content="keywords"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <link rel="shortcut icon" href="{{ asset('storage/logos/' . ($setting->logo ?? 'tharawatlogo.png')) }}"/>
+    <link rel="shortcut icon" href="{{ asset('storage/website_images/header_logo.png') }}"/>
     <title>@yield('title')</title>
     <!-- styles-->
     <link rel="stylesheet" href="{{ asset('design/front/css/styles.min.css') }}"/>

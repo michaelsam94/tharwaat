@@ -1,6 +1,6 @@
 <div class="main-header">
     <div class="logo">
-        <img src="{{ asset('storage/logos/' . ($setting->logo ?? 'tharawatlogo.png')) }}" alt="">
+        <img src="{{ asset('storage/website_images/header_logo.png') }}" alt="">
     </div>
     <div class="menu-toggle">
         <div></div>
