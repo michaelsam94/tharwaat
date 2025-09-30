@@ -270,7 +270,90 @@
             }
         }
 
-        /* Mobile Navigation Fixes - Updated breakpoint for 950px and below */
+        /* ========================================
+           MOBILE LAYOUT OPTIMIZATION
+           ======================================== */
+        
+        /* Fix excessive spacing on mobile */
+        @media (max-width: 950px) {
+            /* Reduce section padding on mobile */
+            .section {
+                padding: 20px 0 !important;
+                margin: 0 !important;
+            }
+            
+            /* Fix promo section spacing */
+            .promo {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            .promo-slider {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            /* Fix about section spacing */
+            .about-us--blue {
+                padding: 20px 15px !important;
+                margin: 0 !important;
+            }
+            
+            /* Fix join us section spacing */
+            .no-padding-top,
+            .no-padding-bottom {
+                padding: 0 !important;
+            }
+            
+            /* Fix partners section spacing */
+            .donors--style-2 {
+                padding: 20px 0 !important;
+            }
+            
+            /* Reduce container padding on mobile */
+            .container {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+            
+            /* Fix row spacing */
+            .row {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            
+            /* Ensure content fills viewport */
+            .main {
+                min-height: auto !important;
+            }
+            
+            /* Fix any empty space issues */
+            .page-wrapper {
+                min-height: auto !important;
+            }
+            
+            /* Optimize action blocks */
+            .action-block {
+                min-height: 200px !important;
+                margin: 0 !important;
+            }
+            
+            /* Fix carousel spacing */
+            .carousel {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .carousel-inner {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
+        
+        /* ========================================
+           MOBILE WHITE AREA FIXES
+           ======================================== */
+        
         @media (max-width: 950px) {
             /* Force full width on mobile */
             body, html {
@@ -284,30 +367,42 @@
             /* Reset any unwanted backgrounds that might cause dark margins */
             .page-wrapper {
                 background-color: #fff !important;
+                min-height: auto !important;
             }
             
             .main {
                 background-color: #fff !important;
+                min-height: auto !important;
             }
             
-            /* Ensure sections have proper backgrounds */
+            /* Ensure sections have proper backgrounds and no excessive spacing */
             .section:not(.about-us--blue) {
                 background-color: #fff !important;
+                padding: 15px 0 !important;
+                margin: 0 !important;
             }
             
-            /* Debug: Add temporary background colors to identify sections */
-            .section {
-                border: 1px solid #ddd;
-                margin: 10px 0;
+            /* Remove any excessive margins or padding */
+            * {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
             }
             
-            /* Ensure content is visible */
+            /* Fix specific section spacing */
+            .section + .section {
+                margin-top: 0 !important;
+                padding-top: 15px !important;
+            }
+            
+            /* Ensure content is visible and properly spaced */
             .section .container {
                 background: transparent;
+                padding: 0 15px !important;
             }
             
             .section .row {
                 background: transparent;
+                margin: 0 !important;
             }
             
             /* Fix any hidden content */
@@ -316,10 +411,38 @@
                 opacity: 1 !important;
             }
             
-            .page-wrapper {
-                width: 100% !important;
-                margin: 0 !important;
-                padding: 0 !important;
+            /* Specific fixes for content sections */
+            .promo-slider__item {
+                min-height: 300px !important;
+            }
+            
+            .about-us--blue {
+                min-height: auto !important;
+                padding: 20px 15px !important;
+            }
+            
+            .action-block {
+                min-height: 200px !important;
+                padding: 20px !important;
+            }
+            
+            .donors--style-2 {
+                min-height: auto !important;
+                padding: 20px 0 !important;
+            }
+            
+            /* Remove any empty space between sections */
+            .section:empty {
+                display: none !important;
+            }
+            
+            /* Ensure proper content flow */
+            .main > * {
+                margin-bottom: 0 !important;
+            }
+            
+            .main > * + * {
+                margin-top: 0 !important;
             }
             
             .main-menu {
