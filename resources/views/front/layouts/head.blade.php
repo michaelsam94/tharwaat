@@ -141,6 +141,35 @@
 
         /* Mobile Navigation Fixes */
         @media (max-width: 991.98px) {
+            /* Force full width on mobile */
+            body, html {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                overflow-x: hidden !important;
+                background: #fff !important;
+            }
+            
+            /* Reset any unwanted backgrounds that might cause dark margins */
+            .page-wrapper {
+                background-color: #fff !important;
+            }
+            
+            .main {
+                background-color: #fff !important;
+            }
+            
+            /* Ensure sections have proper backgrounds */
+            .section:not(.about-us--blue) {
+                background-color: #fff !important;
+            }
+            
+            .page-wrapper {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
             .main-menu {
                 display: none !important;
             }
@@ -401,11 +430,53 @@
             .container {
                 padding-left: 15px;
                 padding-right: 15px;
+                width: 100% !important;
+                max-width: 100% !important;
             }
             
-            /* Fix section padding on mobile */
+            /* Force full width sections */
             .section {
-                padding: 40px 0;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 30px 15px !important;
+            }
+            
+            /* Fix promo section for mobile */
+            .promo {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .promo-slider {
+                width: 100% !important;
+            }
+            
+            .promo-slider__item {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            /* Fix about section for mobile */
+            .about-us--blue {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 30px 15px !important;
+            }
+            
+            /* Fix join us section for mobile */
+            .no-padding-top,
+            .no-padding-bottom {
+                padding: 0 !important;
+            }
+            
+            .row.no-gutters {
+                margin: 0 !important;
+            }
+            
+            .row.no-gutters > [class*="col-"] {
+                padding: 0 !important;
             }
             
             /* Fix join us section for mobile */
@@ -460,6 +531,32 @@
             .row > * {
                 padding-left: 15px;
                 padding-right: 15px;
+            }
+            
+            /* Override any dark backgrounds that might cause margins */
+            * {
+                box-sizing: border-box;
+            }
+            
+            /* Ensure no unwanted margins or backgrounds */
+            .main {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            /* Fix header for mobile */
+            .header {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 15px !important;
+            }
+            
+            /* Fix footer for mobile */
+            .footer {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 30px 15px !important;
             }
         }
 
