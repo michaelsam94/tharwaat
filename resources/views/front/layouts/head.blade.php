@@ -139,6 +139,190 @@
             }
         }
 
+        /* Mobile Navigation Fixes */
+        @media (max-width: 991.98px) {
+            .main-menu {
+                display: none !important;
+            }
+            
+            .dropdown-trigger {
+                display: block !important;
+            }
+            
+            .mobile-nav {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                visibility: hidden;
+                z-index: 9999;
+                transition: all 0.3s ease;
+            }
+            
+            .mobile-nav--active {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .mobile-nav__inner {
+                width: 300px;
+                min-height: 100%;
+                padding: 50px 20px;
+                background-color: #fff;
+                transform: translateX(-300px);
+                transition: all 0.3s ease;
+                overflow-y: auto;
+            }
+            
+            .mobile-nav--active .mobile-nav__inner {
+                transform: translateX(0);
+            }
+            
+            .mobile-menu {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .mobile-menu__item {
+                margin-bottom: 15px;
+            }
+            
+            .mobile-menu__link {
+                display: block;
+                padding: 10px 0;
+                color: #333;
+                text-decoration: none;
+                font-weight: 500;
+                border-bottom: 1px solid #eee;
+                transition: color 0.3s ease;
+            }
+            
+            .mobile-menu__link:hover {
+                color: #007bff;
+            }
+            
+            .mobile-menu__sub-list {
+                list-style: none;
+                padding: 0;
+                margin: 10px 0 0 20px;
+                display: none;
+            }
+            
+            .mobile-menu__item--has-child .mobile-menu__link:after {
+                content: '+';
+                float: right;
+                font-size: 18px;
+            }
+            
+            .mobile-menu__item--has-child.active .mobile-menu__link:after {
+                content: '-';
+            }
+            
+            .mobile-menu__item--has-child.active .mobile-menu__sub-list {
+                display: block;
+            }
+            
+            .mobile-menu__sub-list li {
+                margin-bottom: 8px;
+            }
+            
+            .mobile-menu__sub-list a {
+                color: #666;
+                text-decoration: none;
+                font-size: 14px;
+            }
+            
+            .mobile-menu__sub-list a:hover {
+                color: #007bff;
+            }
+            
+            /* Close button for mobile nav */
+            .mobile-nav__close {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background: none;
+                border: none;
+                font-size: 24px;
+                color: #333;
+                cursor: pointer;
+                z-index: 10000;
+            }
+            
+            /* Prevent body scroll when mobile nav is open */
+            body.mobile-nav-open {
+                overflow: hidden;
+            }
+            
+            /* Ensure header is properly positioned on mobile */
+            .header--front_3 {
+                position: relative;
+                z-index: 1000;
+            }
+            
+            /* Make sure dropdown trigger is visible and properly styled */
+            .dropdown-trigger {
+                display: block !important;
+                margin: 0 15px 0 0;
+            }
+            
+            /* Hide main menu completely on mobile */
+            .main-menu {
+                display: none !important;
+            }
+            
+            /* Ensure header logo is properly sized on mobile */
+            .header-logo__img {
+                max-height: 40px;
+                width: auto;
+            }
+            
+            /* Fix container padding on mobile */
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            /* Ensure proper spacing for mobile content */
+            .promo-slider__title {
+                font-size: 24px !important;
+                line-height: 1.3;
+            }
+            
+            .promo-slider__subtitle {
+                font-size: 16px !important;
+                line-height: 1.4;
+            }
+            
+            /* Fix button sizing on mobile */
+            .button {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+            
+            /* Ensure images are responsive */
+            .img--bg {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+            
+            /* Fix any overflow issues */
+            .row {
+                margin-left: -15px;
+                margin-right: -15px;
+            }
+            
+            .row > * {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+
     </style>
     <script>
         WebFontConfig = {

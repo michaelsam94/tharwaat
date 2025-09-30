@@ -26,4 +26,54 @@
         }
     }
 });
+
+// Mobile Navigation Functionality
+$(document).ready(function() {
+    // Handle dropdown trigger click for mobile navigation
+    $('.dropdown-trigger').on('click', function(e) {
+        e.preventDefault();
+        $('.mobile-nav').addClass('mobile-nav--active');
+        $('body').addClass('mobile-nav-open');
+    });
+    
+    // Close mobile navigation
+    $('.mobile-nav__close').on('click', function(e) {
+        e.preventDefault();
+        $('.mobile-nav').removeClass('mobile-nav--active');
+        $('body').removeClass('mobile-nav-open');
+    });
+    
+    // Close mobile navigation when clicking outside
+    $('.mobile-nav').on('click', function(e) {
+        if (e.target === this) {
+            $('.mobile-nav').removeClass('mobile-nav--active');
+            $('body').removeClass('mobile-nav-open');
+        }
+    });
+    
+    // Handle mobile menu sub-items toggle
+    $('.mobile-menu__item--has-child .mobile-menu__link').on('click', function(e) {
+        e.preventDefault();
+        $(this).parent().toggleClass('active');
+    });
+    
+    // Close mobile nav when clicking on menu links
+    $('.mobile-menu__link').on('click', function() {
+        if ($(this).attr('href') !== 'javascript:void(0);') {
+            $('.mobile-nav').removeClass('mobile-nav--active');
+            $('body').removeClass('mobile-nav-open');
+        }
+    });
+});
+
+// Prevent body scroll when mobile nav is open
+$(document).ready(function() {
+    $('body').on('classChange', function() {
+        if ($(this).hasClass('mobile-nav-open')) {
+            $('body').css('overflow', 'hidden');
+        } else {
+            $('body').css('overflow', '');
+        }
+    });
+});
 </script>

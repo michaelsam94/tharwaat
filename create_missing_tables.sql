@@ -123,3 +123,5 @@ SELECT 'Tables created successfully! Your Laravel application should now work.' 
 
 
 
+
+
