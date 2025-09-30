@@ -139,8 +139,8 @@
             }
         }
 
-        /* Mobile Navigation Fixes */
-        @media (max-width: 991.98px) {
+        /* Mobile Navigation Fixes - Updated breakpoint for 950px and below */
+        @media (max-width: 950px) {
             /* Force full width on mobile */
             body, html {
                 width: 100% !important;
@@ -627,6 +627,60 @@
                 width: 100% !important;
                 margin: 0 !important;
                 padding: 30px 15px !important;
+            }
+            
+            /* Additional overrides for 950px and below */
+            .main-menu {
+                display: none !important;
+            }
+            
+            .dropdown-trigger {
+                display: block !important;
+            }
+            
+            /* Ensure all Bootstrap columns stack properly */
+            [class*="col-"] {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+            }
+            
+            /* Override any desktop-specific styles */
+            .col-lg-6,
+            .col-xl-5,
+            .col-xl-6 {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+            }
+            
+            /* Fix any remaining layout issues */
+            .row {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            
+            .container-fluid {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+        }
+        
+        /* Additional mobile fixes for 950px breakpoint */
+        @media (max-width: 950px) and (min-width: 768px) {
+            /* Tablet-specific fixes */
+            .promo-slider__item .col-xl-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+            .about-us--blue .col-lg-6,
+            .about-us--blue .col-xl-5,
+            .about-us--blue .col-xl-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+            .action-block {
+                min-height: 200px;
             }
         }
 
