@@ -14,7 +14,7 @@ class WebsiteContentService
      */
     public static function getContent($key, $default = '')
     {
-        return Cache::remember("content.{$key}." . app()->getLocale(), 60, function () use ($key, $default) {
+        return Cache::remember("content.{$key}." . app()->getLocale(), 300, function () use ($key, $default) {
             $content = WebsiteContent::active()->byKey($key)->first();
             if ($content) {
                 $locale = app()->getLocale();
@@ -57,7 +57,7 @@ class WebsiteContentService
      */
     public static function getSliders()
     {
-        return Cache::remember('sliders.active', 60, function () {
+        return Cache::remember('sliders.active', 300, function () {
             return Slider::active()->orderBy('sort_order')->get();
         });
     }
