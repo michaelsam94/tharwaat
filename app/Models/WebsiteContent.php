@@ -75,16 +75,19 @@ class WebsiteContent extends Model
     public function getImageUrlAttribute()
     {
         if ($this->image) {
-            // Try to get the current request URL, fallback to config
-            try {
-                $baseUrl = request()->getSchemeAndHttpHost();
-                // If we're in development and using localhost, try to use 127.0.0.1:8000
-                if (strpos($baseUrl, 'localhost') !== false && app()->environment('local')) {
-                    $baseUrl = 'http://127.0.0.1:8000';
+            // Use a more efficient approach for image URLs
+            static $baseUrl = null;
+            if ($baseUrl === null) {
+                try {
+                    $baseUrl = request()->getSchemeAndHttpHost();
+                    // If we're in development and using localhost, try to use 127.0.0.1:8000
+                    if (strpos($baseUrl, 'localhost') !== false && app()->environment('local')) {
+                        $baseUrl = 'http://127.0.0.1:8000';
+                    }
+                } catch (Exception $e) {
+                    // Fallback to config or default
+                    $baseUrl = config('app.url', 'http://127.0.0.1:8000');
                 }
-            } catch (Exception $e) {
-                // Fallback to config or default
-                $baseUrl = config('app.url', 'http://127.0.0.1:8000');
             }
             
             // Use storage path for all images (since they're now stored in storage directory)

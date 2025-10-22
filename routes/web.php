@@ -68,9 +68,9 @@ Route::post('/uploadResume', function () {
     return redirect()->back()->with('success', 'Resume uploaded successfully!');
 })->name('uploadResume');
 
-Route::get('/group/{title}', function ($title) {
+Route::get('/group', function () {
     // Handle group pages
-    return view('front.pages.group', compact('title'));
+    return view('front.pages.group');
 })->name('group');
 
 // Group company routes from language files
@@ -110,9 +110,9 @@ Route::get('/tech', function () {
     return view('front.pages.tech');
 })->name('tech');
 
-// Route to serve files from storage directory
+// Route to serve files from storage directory (optimized)
 Route::get('/storage/{path}', function ($path) {
-    $filePath = storage_path($path);
+    $filePath = storage_path('app/public/' . $path);
     
     if (!file_exists($filePath)) {
         abort(404);
@@ -124,5 +124,6 @@ Route::get('/storage/{path}', function ($path) {
     return response()->file($filePath, [
         'Content-Type' => $mimeType,
         'Content-Length' => $fileSize,
+        'Cache-Control' => 'public, max-age=31536000',
     ]);
 })->where('path', '.*')->name('storage.files');
