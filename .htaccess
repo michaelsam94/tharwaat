@@ -4,12 +4,32 @@ RewriteEngine On
 RewriteCond %{HTTP:Authorization} .
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
+# Prevent redirect from home to public directory
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^$ index.php [L]
+
+# Prevent redirect from root to public directory for specific patterns
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteCond %{REQUEST_URI} !^/storage/
+RewriteCond %{REQUEST_URI} !^/design/
+RewriteCond %{REQUEST_URI} !^/manage/
+RewriteCond %{REQUEST_URI} !^/favicon\.ico$
+RewriteCond %{REQUEST_URI} !^/robots\.txt$
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteRule ^(.*)$ index.php [L,QSA]
+
 # Redirect Trailing Slashes If Not A Folder...
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} (.+)/$
 RewriteRule ^ %1 [L,R=301]
 
-# Send Requests To Front Controller...
+# Handle static files that should go to public directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^/(css|js|images|fonts|storage|favicon\.ico|robots\.txt|design|manage)
+RewriteRule ^(.*)$ public/$1 [L]
+
+# Send Requests To Front Controller for everything else...
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ public/index.php [L]
