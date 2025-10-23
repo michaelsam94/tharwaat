@@ -13,7 +13,7 @@ class WebsiteContentSeeder extends Seeder
     {
         // Create sample sliders
         Slider::create([
-            'title_en' => 'Welcome to <span>Tharawat</span><br /><span>Investment Group</span>',
+            'title_en' => 'Welcome to <span>Thrawaat</span><br /><span>Investment Group</span>',
             'title_ar' => 'مرحباً بكم في <span>ثروات</span><br /><span>مجموعة الاستثمار</span>',
             'subtitle_en' => 'Building the future through strategic investments and innovative solutions',
             'subtitle_ar' => 'بناء المستقبل من خلال الاستثمارات الاستراتيجية والحلول المبتكرة',
@@ -35,7 +35,7 @@ class WebsiteContentSeeder extends Seeder
                 'page' => 'home',
                 'section' => 'about',
                 'type' => 'text',
-                'content_en' => 'About Tharawat',
+                'content_en' => 'About Thrawaat',
                 'content_ar' => 'عن ثروات',
                 'is_active' => true,
                 'sort_order' => 1
@@ -95,7 +95,7 @@ class WebsiteContentSeeder extends Seeder
                 'page' => 'home',
                 'section' => 'about',
                 'type' => 'image',
-                'content_en' => 'About Tharawat Investment Group',
+                'content_en' => 'About Thrawaat Investment Group',
                 'content_ar' => 'عن مجموعة ثروات الاستثمارية',
                 'image' => 'website_content/about-image.jpg',
                 'is_active' => true,
@@ -150,7 +150,7 @@ class WebsiteContentSeeder extends Seeder
                 'page' => 'footer',
                 'section' => 'main',
                 'type' => 'text',
-                'content_en' => '© 2024 Tharawat Investment Group. All rights reserved.',
+                'content_en' => '© 2024 Thrawaat Investment Group. All rights reserved.',
                 'content_ar' => '© 2024 مجموعة ثروات الاستثمارية. جميع الحقوق محفوظة.',
                 'is_active' => true,
                 'sort_order' => 1
@@ -176,7 +176,7 @@ class WebsiteContentSeeder extends Seeder
             'name' => 'home_about',
             'page' => 'home',
             'type' => 'content',
-            'title_en' => 'About Tharawat Investment Group',
+            'title_en' => 'About Thrawaat Investment Group',
             'title_ar' => 'عن مجموعة ثروات الاستثمارية',
             'content_en' => 'We are a leading investment group focused on creating value through diversified portfolios and sustainable growth.',
             'content_ar' => 'نحن مجموعة استثمارية رائدة تركز على خلق القيمة من خلال محافظ متنوعة ونمو مستدام.',

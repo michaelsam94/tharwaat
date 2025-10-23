@@ -24,14 +24,14 @@ try {
     
     // Insert sliders data
     $sql = "INSERT IGNORE INTO `sliders` (`title_en`, `title_ar`, `title_bg`, `subtitle_en`, `subtitle_ar`, `subtitle_bg`, `description_en`, `description_ar`, `description_bg`, `button_text_en`, `button_text_ar`, `button_text_bg`, `button_link`, `image`, `is_active`, `sort_order`, `created_at`, `updated_at`) VALUES
-    ('Welcome to <span>Tharawat</span><br /><span>Investment Group</span>', 'مرحباً بكم في <span>ثروات</span><br /><span>مجموعة الاستثمار</span>', 'Welcome to <span>Tharawat</span><br /><span>Investment Group</span>', 'Building the future through strategic investments and innovative solutions', 'بناء المستقبل من خلال الاستثمارات الاستراتيجية والحلول المبتكرة', 'Building the future through strategic investments and innovative solutions', 'We are a leading investment group focused on creating value through diversified portfolios and sustainable growth.', 'نحن مجموعة استثمارية رائدة تركز على خلق القيمة من خلال محافظ متنوعة ونمو مستدام.', 'We are a leading investment group focused on creating value through diversified portfolios and sustainable growth.', 'Learn More', 'اعرف المزيد', 'Learn More', '/about-us', 'sliders/welcome-slider.jpg', 1, 1, NOW(), NOW())";
+    ('Welcome to <span>Thrawaat</span><br /><span>Investment Group</span>', 'مرحباً بكم في <span>ثروات</span><br /><span>مجموعة الاستثمار</span>', 'Welcome to <span>Thrawaat</span><br /><span>Investment Group</span>', 'Building the future through strategic investments and innovative solutions', 'بناء المستقبل من خلال الاستثمارات الاستراتيجية والحلول المبتكرة', 'Building the future through strategic investments and innovative solutions', 'We are a leading investment group focused on creating value through diversified portfolios and sustainable growth.', 'نحن مجموعة استثمارية رائدة تركز على خلق القيمة من خلال محافظ متنوعة ونمو مستدام.', 'We are a leading investment group focused on creating value through diversified portfolios and sustainable growth.', 'Learn More', 'اعرف المزيد', 'Learn More', '/about-us', 'sliders/welcome-slider.jpg', 1, 1, NOW(), NOW())";
     
     $pdo->exec($sql);
     echo "✅ Sliders data inserted\n";
     
     // Insert sections data
     $sections = [
-        ['About Tharawat Investment Group', 'عن مجموعة ثروات الاستثمارية', 'About Tharawat Investment Group', 'We are a leading investment group focused on creating value through diversified portfolios and sustainable growth.', 'نحن مجموعة استثمارية رائدة تركز على خلق القيمة من خلال محافظ متنوعة ونمو مستدام.', 'We are a leading investment group focused on creating value through diversified portfolios and sustainable growth.', 1, 1],
+        ['About Thrawaat Investment Group', 'عن مجموعة ثروات الاستثمارية', 'About Thrawaat Investment Group', 'We are a leading investment group focused on creating value through diversified portfolios and sustainable growth.', 'نحن مجموعة استثمارية رائدة تركز على خلق القيمة من خلال محافظ متنوعة ونمو مستدام.', 'We are a leading investment group focused on creating value through diversified portfolios and sustainable growth.', 1, 1],
         ['Our Services', 'خدماتنا', 'Our Services', 'We offer a comprehensive range of investment and financial services to meet your needs.', 'نقدم مجموعة شاملة من الخدمات الاستثمارية والمالية لتلبية احتياجاتك.', 'We offer a comprehensive range of investment and financial services to meet your needs.', 1, 2]
     ];
     
@@ -131,13 +131,13 @@ try {
         ['pages.join.form.cta', 'join', 'text', 'Send', 'إرسال', 'Send', 1],
         
         // Home page content
-        ['home.about.header', 'home', 'text', 'About Tharawat', 'عن ثروات', 'About Tharawat', 1],
+        ['home.about.header', 'home', 'text', 'About Thrawaat', 'عن ثروات', 'About Thrawaat', 1],
         ['home.about.title', 'home', 'text', 'Your Trusted Investment Partner', 'شريكك الاستثماري الموثوق', 'Your Trusted Investment Partner', 1],
         ['home.about.text1', 'home', 'text', 'Professional and versatile technical and engineering capability.', 'قدرات تقنية وهندسية مهنية ومتعددة الاستخدامات.', 'Professional and versatile technical and engineering capability.', 1],
         ['home.about.text2', 'home', 'text', 'Diversified range of Products & Services.', 'مجموعة متنوعة من المنتجات والخدمات.', 'Diversified range of Products & Services.', 1],
         ['home.about.text3', 'home', 'text', 'Focus on Quality Brand Names, Solid Innovation & Customer Satisfaction.', 'التركيز على أسماء العلامات التجارية عالية الجودة والابتكار الراسخ ورضا العملاء.', 'Focus on Quality Brand Names, Solid Innovation & Customer Satisfaction.', 1],
         ['home.about.button', 'home', 'text', 'Read More', 'اقرأ المزيد', 'Read More', 1],
-        ['home.about.image', 'home', 'image', 'About Tharawat Investment Group', 'عن مجموعة ثروات الاستثمارية', 'About Tharawat Investment Group', 1],
+        ['home.about.image', 'home', 'image', 'About Thrawaat Investment Group', 'عن مجموعة ثروات الاستثمارية', 'About Thrawaat Investment Group', 1],
         
         // Join Us section
         ['home.join.title1', 'home', 'text', 'Join Our Team', 'انضم إلى فريقنا', 'Join Our Team', 1],
@@ -146,7 +146,7 @@ try {
         ['home.join.button2', 'home', 'text', 'Get In Touch', 'تواصل معنا', 'Get In Touch', 1],
         
         // Footer content
-        ['footer.copyright', 'footer', 'text', '© 2024 Tharawat Investment Group. All rights reserved.', '© 2024 مجموعة ثروات الاستثمارية. جميع الحقوق محفوظة.', '© 2024 Tharawat Investment Group. All rights reserved.', 1],
+        ['footer.copyright', 'footer', 'text', '© 2024 Thrawaat Investment Group. All rights reserved.', '© 2024 مجموعة ثروات الاستثمارية. جميع الحقوق محفوظة.', '© 2024 Thrawaat Investment Group. All rights reserved.', 1],
         ['footer.description', 'footer', 'text', 'Building the future through strategic investments and innovative solutions.', 'بناء المستقبل من خلال الاستثمارات الاستراتيجية والحلول المبتكرة.', 'Building the future through strategic investments and innovative solutions.', 1]
     ];
     

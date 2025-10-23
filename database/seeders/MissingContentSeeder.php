@@ -96,7 +96,7 @@ class MissingContentSeeder extends Seeder
                 'page' => 'home',
                 'section' => 'slider',
                 'type' => 'text',
-                'content_en' => 'Tharawat Investment Group',
+                'content_en' => 'Thrawaat Investment Group',
                 'content_ar' => 'مجموعة ثروات الاستثمارية',
                 'content_bg' => 'Инвестиционна група Тарават',
                 'is_active' => true,
