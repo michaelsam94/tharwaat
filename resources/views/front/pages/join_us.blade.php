@@ -161,13 +161,13 @@
                 if (submitBtn) submitBtn.disabled = true;
             }
 
-            // Show loader as soon as a file is chosen, then submit
+            // Show loader as soon as a file is chosen; keep Send disabled
             if (fileInput) {
                 fileInput.addEventListener('change', function() {
                     if (fileInput.files && fileInput.files.length) {
                         showLoader();
-                        // Auto-submit on file selection
-                        form.submit();
+                        // Do NOT auto-submit. User can review fields; Send stays disabled
+                        // and will remain disabled through the upload once submitted.
                     }
                 });
             }
