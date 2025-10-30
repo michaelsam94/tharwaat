@@ -82,13 +82,13 @@
                     href="tel:{{ $setting->phone_1 }}">{{ __('footer.phone2Header') }}</a>
             </div>
             <ul class="aside-socials">
-                <li class="aside-socials__item"><a class="aside-socials__link" href="{{ $setting->insta_link }}"><i
+                <li class="aside-socials__item"><a class="aside-socials__link" href="{{ \Illuminate\Support\Str::startsWith($setting->insta_link, ['http://','https://']) ? $setting->insta_link : 'https://' . ltrim($setting->insta_link, '/') }}"><i
                             class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                <li class="aside-socials__item"><a class="aside-socials__link" href="{{ $setting->google_link }}"><i
+                <li class="aside-socials__item"><a class="aside-socials__link" href="{{ \Illuminate\Support\Str::startsWith($setting->google_link, ['http://','https://']) ? $setting->google_link : 'https://' . ltrim($setting->google_link, '/') }}"><i
                             class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                 <li class="aside-socials__item"><a class="aside-socials__link aside-socials__link--active"
-                        href="{{ $setting->twitter_link }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                <li class="aside-socials__item"><a class="aside-socials__link" href="{{ $setting->fb_link }}"><i
+                        href="{{ \Illuminate\Support\Str::startsWith($setting->twitter_link, ['http://','https://']) ? $setting->twitter_link : 'https://' . ltrim($setting->twitter_link, '/') }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li class="aside-socials__item"><a class="aside-socials__link" href="{{ \Illuminate\Support\Str::startsWith($setting->fb_link, ['http://','https://']) ? $setting->fb_link : 'https://' . ltrim($setting->fb_link, '/') }}"><i
                             class="fa fa-facebook" aria-hidden="true"></i></a></li>
             </ul>
         </div>
