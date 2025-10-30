@@ -69,6 +69,15 @@ Route::post('/sendMessage', function (\Illuminate\Http\Request $request) {
 
     \App\Models\Message::create($validated);
 
+    try {
+        \Illuminate\Support\Facades\Mail::send('emails.contact', ['data' => $validated], function ($m) use ($validated) {
+            $m->to('info@thrawaat.com')
+              ->subject('New Contact Us Message');
+        });
+    } catch (\Throwable $e) {
+        // fail silently to not block user flow
+    }
+
     return redirect()->back()->with('success', 'Message sent successfully!');
 })->name('sendMessage');
 
@@ -83,6 +92,7 @@ Route::post('/uploadResume', function (\Illuminate\Http\Request $request) {
     ]);
 
     $resumeFileName = null;
+    $resumeAbsolutePath = null;
     if ($request->hasFile('cv')) {
         $file = $request->file('cv');
         $resumeFileName = time() . '_' . preg_replace('/[^A-Za-z0-9_.-]/', '_', $file->getClientOriginalName());
@@ -91,6 +101,7 @@ Route::post('/uploadResume', function (\Illuminate\Http\Request $request) {
             @mkdir($destination, 0775, true);
         }
         $file->move($destination, $resumeFileName);
+        $resumeAbsolutePath = $destination . DIRECTORY_SEPARATOR . $resumeFileName;
     }
 
     \App\Models\Job::create([
@@ -101,6 +112,22 @@ Route::post('/uploadResume', function (\Illuminate\Http\Request $request) {
         'job_title' => $validated['job_title'] ?? '',
         'resume' => $resumeFileName ?? '',
     ]);
+
+    try {
+        $payload = $validated;
+        if ($resumeAbsolutePath) {
+            $payload['resume_path'] = $resumeAbsolutePath;
+        }
+        \Illuminate\Support\Facades\Mail::send('emails.join', ['data' => $payload], function ($m) use ($payload, $resumeAbsolutePath) {
+            $m->to('career@thrawaat.com')
+              ->subject('New Join Us Submission');
+            if ($resumeAbsolutePath && file_exists($resumeAbsolutePath)) {
+                $m->attach($resumeAbsolutePath);
+            }
+        });
+    } catch (\Throwable $e) {
+        // fail silently to not block user flow
+    }
 
     return redirect()->back()->with('success', 'Resume uploaded successfully!');
 })->name('uploadResume');
