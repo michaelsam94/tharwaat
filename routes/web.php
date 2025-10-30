@@ -58,8 +58,17 @@ Route::get('/welcome', function () {
 })->name('welcome');
 
 // Additional routes that might be referenced in views
-Route::post('/sendMessage', function () {
-    // Handle message sending
+Route::post('/sendMessage', function (\Illuminate\Http\Request $request) {
+    $validated = $request->validate([
+        'fname' => 'required|string|max:255',
+        'lname' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'phone' => 'nullable|string|max:255',
+        'message' => 'required|string',
+    ]);
+
+    \App\Models\Message::create($validated);
+
     return redirect()->back()->with('success', 'Message sent successfully!');
 })->name('sendMessage');
 
