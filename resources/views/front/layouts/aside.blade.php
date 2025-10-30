@@ -76,10 +76,10 @@
                 </a>
             </div>
             <div class="aside-inner"><span class="aside-inner__title">Email</span><a class="aside-inner__link"
-                    href="mailto:{{ $setting->email }}">{{ __('footer.emailHeader') }}</a>
+                    href="mailto:{{ $setting->email }}">{{ $setting->email }}</a>
             </div>
             <div class="aside-inner"><span class="aside-inner__title">Phone number</span><a class="aside-inner__link"
-                    href="tel:{{ $setting->phone_1 }}">{{ __('footer.phone2Header') }}</a>
+                    href="tel:{{ $setting->phone_1 }}">{{ $setting->phone_1 }}</a>
             </div>
             <ul class="aside-socials">
                 <li class="aside-socials__item"><a class="aside-socials__link" href="{{ \Illuminate\Support\Str::startsWith($setting->insta_link, ['http://','https://']) ? $setting->insta_link : 'https://' . ltrim($setting->insta_link, '/') }}"><i
