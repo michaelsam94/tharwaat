@@ -71,11 +71,13 @@ Route::post('/sendMessage', function (\Illuminate\Http\Request $request) {
 
     try {
         \Illuminate\Support\Facades\Mail::send('emails.contact', ['data' => $validated], function ($m) use ($validated) {
-            $m->to('info@thrawaat.com')
+            $m->from(env('MAIL_FROM_ADDRESS', 'thrawaat0@gmail.com'), env('MAIL_FROM_NAME', 'Thrawaat Website'))
+              ->to('info@thrawaat.com')
               ->subject('New Contact Us Message');
         });
+        \Log::info('Contact form email sent successfully', ['email' => $validated['email']]);
     } catch (\Throwable $e) {
-        // fail silently to not block user flow
+        \Log::error('Failed to send contact form email', ['error' => $e->getMessage(), 'trace' => $e->getTraceAsString()]);
     }
 
     return redirect()->back()->with('success', 'Message sent successfully!');
@@ -119,14 +121,16 @@ Route::post('/uploadResume', function (\Illuminate\Http\Request $request) {
             $payload['resume_path'] = $resumeAbsolutePath;
         }
         \Illuminate\Support\Facades\Mail::send('emails.join', ['data' => $payload], function ($m) use ($payload, $resumeAbsolutePath) {
-            $m->to('career@thrawaat.com')
+            $m->from(env('MAIL_FROM_ADDRESS', 'thrawaat0@gmail.com'), env('MAIL_FROM_NAME', 'Thrawaat Website'))
+              ->to('career@thrawaat.com')
               ->subject('New Join Us Submission');
             if ($resumeAbsolutePath && file_exists($resumeAbsolutePath)) {
                 $m->attach($resumeAbsolutePath);
             }
         });
+        \Log::info('Join Us form email sent successfully', ['email' => $validated['email']]);
     } catch (\Throwable $e) {
-        // fail silently to not block user flow
+        \Log::error('Failed to send join us form email', ['error' => $e->getMessage(), 'trace' => $e->getTraceAsString()]);
     }
 
     return redirect()->back()->with('success', 'Resume uploaded successfully!');
