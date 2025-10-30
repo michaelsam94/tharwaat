@@ -134,8 +134,11 @@
                                 <div class="col-lg-6">
                                     <input class="form__field" type="file" name="cv" placeholder="Upload" />
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12" style="display:flex;align-items:center;gap:12px">
                                     <button class="form__submit" type="submit">{{ __('joinForm.joinCta') }}</button>
+                                    <span id="resume-upload-loader" style="display:none">
+                                        <i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Uploading...
+                                    </span>
                                 </div>
                             </div>
                         </form>
@@ -145,4 +148,34 @@
         </div>
     </section>
     <!-- contacts end-->
+    <script>
+        (function() {
+            var form = document.querySelector('.message-form');
+            if (!form) return;
+            var fileInput = form.querySelector('input[name="cv"]');
+            var loader = document.getElementById('resume-upload-loader');
+            var submitBtn = form.querySelector('.form__submit');
+
+            function showLoader() {
+                if (loader) loader.style.display = 'inline-block';
+                if (submitBtn) submitBtn.disabled = true;
+            }
+
+            // Show loader as soon as a file is chosen, then submit
+            if (fileInput) {
+                fileInput.addEventListener('change', function() {
+                    if (fileInput.files && fileInput.files.length) {
+                        showLoader();
+                        // Auto-submit on file selection
+                        form.submit();
+                    }
+                });
+            }
+
+            // Fallback: show loader on manual submit as well
+            form.addEventListener('submit', function() {
+                showLoader();
+            });
+        })();
+    </script>
 @endsection
