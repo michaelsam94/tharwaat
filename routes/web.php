@@ -72,8 +72,36 @@ Route::post('/sendMessage', function (\Illuminate\Http\Request $request) {
     return redirect()->back()->with('success', 'Message sent successfully!');
 })->name('sendMessage');
 
-Route::post('/uploadResume', function () {
-    // Handle resume upload
+Route::post('/uploadResume', function (\Illuminate\Http\Request $request) {
+    $validated = $request->validate([
+        'fname' => 'required|string|max:255',
+        'lname' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'phone' => 'nullable|string|max:255',
+        'job_title' => 'nullable|string|max:255',
+        'cv' => 'nullable|file|mimes:pdf,doc,docx,rtf|max:5120',
+    ]);
+
+    $resumeFileName = null;
+    if ($request->hasFile('cv')) {
+        $file = $request->file('cv');
+        $resumeFileName = time() . '_' . preg_replace('/[^A-Za-z0-9_.-]/', '_', $file->getClientOriginalName());
+        $destination = public_path('manage/img/resumes');
+        if (!is_dir($destination)) {
+            @mkdir($destination, 0775, true);
+        }
+        $file->move($destination, $resumeFileName);
+    }
+
+    \App\Models\Job::create([
+        'fname' => $validated['fname'],
+        'lname' => $validated['lname'],
+        'email' => $validated['email'],
+        'phone' => $validated['phone'] ?? '',
+        'job_title' => $validated['job_title'] ?? '',
+        'resume' => $resumeFileName ?? '',
+    ]);
+
     return redirect()->back()->with('success', 'Resume uploaded successfully!');
 })->name('uploadResume');
 
