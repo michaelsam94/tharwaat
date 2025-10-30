@@ -57,6 +57,15 @@ Route::get('/welcome', function () {
     return view('front.pages.welcome');
 })->name('welcome');
 
+// Friendly redirects if GET is used on POST-only endpoints
+Route::get('/sendMessage', function () {
+    return redirect()->route('contactUs');
+});
+
+Route::get('/uploadResume', function () {
+    return redirect()->route('joinUs');
+});
+
 // Additional routes that might be referenced in views
 Route::post('/sendMessage', function (\Illuminate\Http\Request $request) {
     $validated = $request->validate([
