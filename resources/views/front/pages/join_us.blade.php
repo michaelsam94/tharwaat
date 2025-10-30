@@ -161,14 +161,11 @@
                 if (submitBtn) submitBtn.disabled = true;
             }
 
-            // Show loader as soon as a file is chosen; keep Send disabled
+            // On file choose: keep the button enabled; do not show loader yet
             if (fileInput) {
                 fileInput.addEventListener('change', function() {
-                    if (fileInput.files && fileInput.files.length) {
-                        showLoader();
-                        // Do NOT auto-submit. User can review fields; Send stays disabled
-                        // and will remain disabled through the upload once submitted.
-                    }
+                    if (submitBtn) submitBtn.disabled = false;
+                    if (loader) loader.style.display = 'none';
                 });
             }
 
