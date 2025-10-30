@@ -97,9 +97,9 @@ Route::post('/uploadResume', function (\Illuminate\Http\Request $request) {
         'fname' => 'required|string|max:255',
         'lname' => 'required|string|max:255',
         'email' => 'required|email|max:255',
-        'phone' => 'nullable|string|max:255',
-        'job_title' => 'nullable|string|max:255',
-        'cv' => 'nullable|file|mimes:pdf,doc,docx,rtf|max:5120',
+        'phone' => 'required|string|max:255',
+        'job_title' => 'required|string|max:255',
+        'cv' => 'required|file|mimes:pdf,doc,docx,rtf|max:5120',
     ]);
 
     $resumeFileName = null;

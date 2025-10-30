@@ -125,17 +125,17 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <input class="form__field" type="tel" name="phone"
-                                        placeholder="{{ __('joinForm.phone') }}" />
+                                        placeholder="{{ __('joinForm.phone') }}" required="required" />
                                 </div>
                                 <div class="col-lg-6">
                                     <input class="form__field" type="text" name="job_title"
-                                        placeholder="{{ __('joinForm.jobTitle') }}" />
+                                        placeholder="{{ __('joinForm.jobTitle') }}" required="required" />
                                 </div>
                                 <div class="col-lg-6">
-                                    <input class="form__field" type="file" name="cv" placeholder="Upload" />
+                                    <input class="form__field" type="file" name="cv" placeholder="Upload" required="required" accept=".pdf,.doc,.docx,.rtf" />
                                 </div>
                                 <div class="col-12" style="display:flex;align-items:center;gap:12px">
-                                    <button class="form__submit" type="submit">{{ __('joinForm.joinCta') }}</button>
+                                    <button class="form__submit" type="submit" id="joinSubmitBtn" disabled>{{ __('joinForm.joinCta') }}</button>
                                     <span id="resume-upload-loader" style="display:none">
                                         <i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Uploading...
                                     </span>
@@ -152,27 +152,55 @@
         (function() {
             var form = document.querySelector('.message-form');
             if (!form) return;
+            var fnameInput = form.querySelector('input[name="fname"]');
+            var lnameInput = form.querySelector('input[name="lname"]');
+            var emailInput = form.querySelector('input[name="email"]');
+            var phoneInput = form.querySelector('input[name="phone"]');
+            var jobTitleInput = form.querySelector('input[name="job_title"]');
             var fileInput = form.querySelector('input[name="cv"]');
             var loader = document.getElementById('resume-upload-loader');
-            var submitBtn = form.querySelector('.form__submit');
+            var submitBtn = document.getElementById('joinSubmitBtn');
+
+            function checkFormValidity() {
+                var allFilled = true;
+                
+                if (!fnameInput || !fnameInput.value.trim()) allFilled = false;
+                if (!lnameInput || !lnameInput.value.trim()) allFilled = false;
+                if (!emailInput || !emailInput.value.trim()) allFilled = false;
+                if (!phoneInput || !phoneInput.value.trim()) allFilled = false;
+                if (!jobTitleInput || !jobTitleInput.value.trim()) allFilled = false;
+                if (!fileInput || !fileInput.files || fileInput.files.length === 0) allFilled = false;
+
+                if (submitBtn) {
+                    submitBtn.disabled = !allFilled;
+                }
+            }
 
             function showLoader() {
                 if (loader) loader.style.display = 'inline-block';
                 if (submitBtn) submitBtn.disabled = true;
             }
 
-            // On file choose: keep the button enabled; do not show loader yet
+            // Check form validity on every input change
+            if (fnameInput) fnameInput.addEventListener('input', checkFormValidity);
+            if (lnameInput) lnameInput.addEventListener('input', checkFormValidity);
+            if (emailInput) emailInput.addEventListener('input', checkFormValidity);
+            if (phoneInput) phoneInput.addEventListener('input', checkFormValidity);
+            if (jobTitleInput) jobTitleInput.addEventListener('input', checkFormValidity);
             if (fileInput) {
                 fileInput.addEventListener('change', function() {
-                    if (submitBtn) submitBtn.disabled = false;
+                    checkFormValidity();
                     if (loader) loader.style.display = 'none';
                 });
             }
 
-            // Fallback: show loader on manual submit as well
+            // Show loader on form submit
             form.addEventListener('submit', function() {
                 showLoader();
             });
+
+            // Initial check
+            checkFormValidity();
         })();
     </script>
 @endsection
