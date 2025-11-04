@@ -16,7 +16,7 @@
                     <!-- sub menu start-->
                     <ul class="aside-menu__sub-list">
                         @foreach ($front_groups as $group)
-                            <li><a href="{{ route('group', $group->title) }}"><span>{{ $group->title }}</span></a></li>
+                            <li><a href="{{ $group->link ? $group->link : route('group', $group->title) }}" {{ $group->link ? 'target="_blank"' : '' }}><span>{{ $group->title }}</span></a></li>
                         @endforeach
                     </ul>
                     <!-- sub menu end-->
@@ -76,10 +76,10 @@
                 </a>
             </div>
             <div class="aside-inner"><span class="aside-inner__title">Email</span><a class="aside-inner__link"
-                    href="mailto:{{ $setting->email }}">{{ $setting->email }}</a>
+                    href="mailto:{{ $setting->email }}">{{ __('footer.emailHeader') }}</a>
             </div>
             <div class="aside-inner"><span class="aside-inner__title">Phone number</span><a class="aside-inner__link"
-                    href="tel:{{ $setting->phone_1 }}">{{ $setting->phone_1 }}</a>
+                    href="tel:{{ $setting->phone_1 }}">{{ __('footer.phone2Header') }}</a>
             </div>
             <ul class="aside-socials">
                 <li class="aside-socials__item"><a class="aside-socials__link" href="{{ \Illuminate\Support\Str::startsWith($setting->insta_link, ['http://','https://']) ? $setting->insta_link : 'https://' . ltrim($setting->insta_link, '/') }}"><i

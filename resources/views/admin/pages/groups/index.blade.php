@@ -14,7 +14,16 @@
                             <img class="card-img-top" src="{{ Storage::url("groups/{$group->logo}")}}" alt="" />
                             <div class="card-body">
                                 <h5 class="card-title">#{{ $group->id }}</h5>
-                                <p class="card-text">{{ $group->title }}</p>
+                                <p class="card-text">
+                                    @if($group->link)
+                                        <a href="{{ $group->link }}" target="_blank">{{ $group->title }}</a>
+                                    @else
+                                        {{ $group->title }}
+                                    @endif
+                                </p>
+                                @if($group->link)
+                                    <small class="text-muted"><a href="{{ $group->link }}" target="_blank">{{ $group->link }}</a></small>
+                                @endif
                             </div>
                             <div class="card-body">
                                 <a class="card-link" href="{{ route('admin.groups.edit', $group->id) }}"><i class="nav-icon i-Pen-2 font-weight-bold"></i></a>
